@@ -1,4 +1,4 @@
-package entity.manager;
+package entity.manager.filter;
 
 import java.io.IOException;
 import javax.servlet.Filter;

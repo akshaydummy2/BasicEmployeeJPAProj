@@ -1,6 +1,8 @@
-package entity.manager;
+package entity.manager.controller;
 
 import java.util.List;
+import entity.manager.models.*;
+import entity.manager.service.EmployeeService;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -30,7 +32,7 @@ public class EmployeeServiceController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Employee getEmployee(@QueryParam("eid") int eid) {
 		EmployeeService service = new EmployeeService();
-		Employee emp = service.getempid(eid);
+		Employee emp = service.getEmpById(eid);
 		return emp;
 	}
 
@@ -39,7 +41,7 @@ public class EmployeeServiceController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Employee> getAllEmployees() {
 		EmployeeService service = new EmployeeService();
-		List<Employee> emps = service.getall();
+		List<Employee> emps = service.getAllEmp();
 		System.out.println("return all emps");
 		return emps;
 	}
@@ -50,7 +52,7 @@ public class EmployeeServiceController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String update(Employee obj) {
 		EmployeeService service = new EmployeeService();
-		service.update(obj);
+		service.updateEmp(obj);
 		return "Success";
 	}
 
